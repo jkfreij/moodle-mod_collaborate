@@ -15,25 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Define all the restore steps that will be used by the restore_widget_activity_task
+ * Define all the restore steps that will be used by the restore_collaborate_activity_task
  *
- * @package   mod_widget
+ * @package   mod_collaborate
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
 
 /**
  * Structure step to restore one collaborate activity
  *
- * @package   mod_widget
+ * @package   mod_collaborate
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class restore_widget_activity_structure_step extends restore_activity_structure_step {
+class restore_collaborate_activity_structure_step extends restore_activity_structure_step {
 
     /**
      * Defines structure of path elements to be processed during the restore
@@ -54,7 +54,7 @@ class restore_widget_activity_structure_step extends restore_activity_structure_
      *
      * @param array $data parsed element data
      */
-    protected function process_widget($data) {
+    protected function process_collaborate($data) {
         global $DB;
 
         $data = (object)$data;
@@ -79,6 +79,6 @@ class restore_widget_activity_structure_step extends restore_activity_structure_
      */
     protected function after_execute() {
         // Add collaborate related files, no need to match by itemname (just internally handled context).
-        $this->add_related_files('mod_widget', 'intro', null);
+        $this->add_related_files('mod_collaborate', 'intro', null);
     }
 }

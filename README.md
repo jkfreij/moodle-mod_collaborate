@@ -1,4 +1,4 @@
-A template for Moodle modules.  Updated from Moodle HQ's moodle-mod_widget template.
+A template for Moodle modules.  Updated from Moodle HQ's moodle-mod_collaborate template.
 
 Added:
 
@@ -32,7 +32,7 @@ You may notice a reference to a local class debugging.  This is a simple script 
 It looks like this"
 
 <pre>
-namespace mod_widget\local;
+namespace mod_collaborate\local;
 
 class debugging {
     public static function logit($message, $value) {
@@ -53,7 +53,7 @@ Place the above code in a file called debugging.php.
 
 Modify the file location (mylog.log) if desired.  Anywhere you want to view the contents of an object use:
 <pre>
-\mod_widget\local\debugging::logit("What is in a widegt: ", $widget);
+\mod_collaborate\local\debugging::logit("What is in a widegt: ", $collaborate);
 </pre>
 Using Xdebug
 ============

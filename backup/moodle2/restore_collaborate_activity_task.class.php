@@ -17,29 +17,29 @@
 /**
  * Provides the restore activity task class
  *
- * @package   mod_widget
+ * @package   mod_collaborate
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . '/mod/collaborate/backup/moodle2/restore_widget_stepslib.php');
+require_once($CFG->dirroot . '/mod/collaborate/backup/moodle2/restore_collaborate_stepslib.php');
 
 /**
  * Restore task for the collaborate activity module
  *
  * Provides all the settings and steps to perform complete restore of the activity.
  *
- * @package   mod_widget
+ * @package   mod_collaborate
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class restore_widget_activity_task extends restore_activity_task {
+class restore_collaborate_activity_task extends restore_activity_task {
 
     /**
      * Define (add) particular settings this activity can have
@@ -53,7 +53,7 @@ class restore_widget_activity_task extends restore_activity_task {
      */
     protected function define_my_steps() {
         // We have just one structure step here.
-        $this->add_step(new restore_widget_activity_structure_step('widget_structure', 'collaborate.xml'));
+        $this->add_step(new restore_collaborate_activity_structure_step('collaborate_structure', 'collaborate.xml'));
     }
 
     /**
@@ -75,8 +75,8 @@ class restore_widget_activity_task extends restore_activity_task {
     static public function define_decode_rules() {
         $rules = array();
 
-        $rules[] = new restore_decode_rule('WIDGETVIEWBYID', '/mod/collaborate/view.php?id=$1', 'course_module');
-        $rules[] = new restore_decode_rule('WIDGETINDEX', '/mod/collaborate/index.php?id=$1', 'course');
+        $rules[] = new restore_decode_rule('collaborateVIEWBYID', '/mod/collaborate/view.php?id=$1', 'course_module');
+        $rules[] = new restore_decode_rule('collaborateINDEX', '/mod/collaborate/index.php?id=$1', 'course');
 
         return $rules;
 

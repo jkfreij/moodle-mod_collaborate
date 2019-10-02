@@ -17,11 +17,11 @@
 /**
  * Prints a particular instance of collaborate
  *
- * @package    mod_widget
+ * @package    mod_collaborate
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget */
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate */
 
 
 require_once('../../config.php');
@@ -37,14 +37,14 @@ if ($id) {
             MUST_EXIST);
     $course = $DB->get_record('course',
             array('id' => $cm->course), '*', MUST_EXIST);
-    $widget = $DB->get_record('collaborate',
+    $collaborate = $DB->get_record('collaborate',
             array('id' => $cm->instance), '*', MUST_EXIST);
 } else if ($n) {
-    $widget = $DB->get_record('collaborate', array('id' => $n), '*',
+    $collaborate = $DB->get_record('collaborate', array('id' => $n), '*',
             MUST_EXIST);
     $course = $DB->get_record('course',
-            array('id' => $widget->course), '*', MUST_EXIST);
-    $cm = get_coursemodule_from_instance('collaborate', $widget->id,
+            array('id' => $collaborate->course), '*', MUST_EXIST);
+    $cm = get_coursemodule_from_instance('collaborate', $collaborate->id,
             $course->id, false, MUST_EXIST);
 }
 
@@ -53,15 +53,15 @@ $PAGE->set_url('/mod/collaborate/view.php', array('id' => $cm->id));
 
 require_login($course, true, $cm);
 
-$PAGE->set_title(format_string($widget->name));
+$PAGE->set_title(format_string($collaborate->name));
 $PAGE->set_heading(format_string($course->fullname));
 
 // The renderer performs output to the page.
-$renderer = $PAGE->get_renderer('mod_widget');
+$renderer = $PAGE->get_renderer('mod_collaborate');
 
 // Check for intro page content.
-if (!$widget->intro) {
-    $widget->intro = '';
+if (!$collaborate->intro) {
+    $collaborate->intro = '';
 }
 // Call the renderer method to display the collaborate intro content.
-$renderer->render_view_page_content($widget, $cm);
+$renderer->render_view_page_content($collaborate, $cm);

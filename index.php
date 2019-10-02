@@ -17,11 +17,11 @@
 /**
  * Prints a list of module instances
  *
- * @package    mod_widget
+ * @package    mod_collaborate
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -36,11 +36,11 @@ require_course_login($course);
 $params = array(
     'context' => context_course::instance($course->id)
 );
-$event = \mod_widget\event\course_module_instance_list_viewed::create($params);
+$event = \mod_collaborate\event\course_module_instance_list_viewed::create($params);
 $event->add_record_snapshot('course', $course);
 $event->trigger();
 
-$strname = get_string('modulenameplural', 'mod_widget');
+$strname = get_string('modulenameplural', 'mod_collaborate');
 $PAGE->set_url('/mod/collaborate/index.php', array('id' => $id));
 $PAGE->navbar->add($strname);
 $PAGE->set_title("$course->shortname: $strname");
@@ -50,8 +50,8 @@ $PAGE->set_pagelayout('incourse');
 echo $OUTPUT->header();
 echo $OUTPUT->heading($strname);
 
-if (! $widgets = get_all_instances_in_course('collaborate', $course)) {
-    notice(get_string('nowidgets', 'collaborate'), new moodle_url('/course/view.php', array('id' => $course->id)));
+if (! $collaborates = get_all_instances_in_course('collaborate', $course)) {
+    notice(get_string('nocollaborates', 'collaborate'), new moodle_url('/course/view.php', array('id' => $course->id)));
 }
 
 $usesections = course_format_uses_sections($course->format);

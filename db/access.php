@@ -39,11 +39,11 @@
  *
  * The variable name for the capability definitions array is $capabilities
  *
- * @package    mod_widget
+ * @package    mod_collaborate
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget */
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate */
 
 defined('MOODLE_INTERNAL') || die();
 

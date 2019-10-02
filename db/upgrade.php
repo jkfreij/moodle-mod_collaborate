@@ -24,11 +24,11 @@
  * it cannot do itself, it will tell you what you need to do.  The commands in
  * here will all be database-neutral, using the functions defined in DLL libraries.
  *
- * @package    mod_widget
+ * @package    mod_collaborate
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget*/
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate*/
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -38,7 +38,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param int $oldversion
  * @return bool
  */
-function xmldb_widget_upgrade($oldversion) {
+function xmldb_collaborate_upgrade($oldversion) {
 
     return true;
 }
